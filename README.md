@@ -14,5 +14,5 @@ python manage.py runserver
 Сервер будет запущен на http://localhost:8000/   
 Далее в URL необходимо дописать  
 ```
-video?text=<Вам текст>
+video?text=<Ваш текст>
 ```
