@@ -1,14 +1,11 @@
-# -*- coding: utf-8 -*-
-
 from django.http import HttpResponse
 from django.conf import settings
 import cv2
 import numpy as np
 import os
+from urllib.parse import unquote, quote_plus
 
 from test_task_python.RequestLog import RequestLog
-
-from urllib.parse import unquote
 
 
 def generate_running_text_video(request, text):
@@ -46,6 +43,7 @@ def video_view(request):
     decoded_text = unquote(text)
 
     if text:
+        encoded_text = quote_plus(text)
         generate_running_text_video(request, decoded_text)
         RequestLog.objects.get_or_create(text=decoded_text)
 
